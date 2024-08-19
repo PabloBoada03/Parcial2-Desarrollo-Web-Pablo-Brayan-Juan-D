@@ -29,28 +29,28 @@ class Plato {
         contenedorCantidad.classList.add('contenedorCantidad');
         contenedorCantidad.append(masBoton, cantidad, menosBoton);
 
-        const nombre = document.createElement('span');
+        const nombre = document.createElement('h3');
         nombre.textContent = this.informacion.nombre;
-        nombre.classList.add('nombrePlato');
+        nombre.classList.add('nombre');
 
         const descripcion = document.createElement('span');
         descripcion.textContent = this.informacion.descripcion;
-        descripcion.classList.add('descripcionPlato');
+        descripcion.classList.add('descripcion');
 
         const precio = document.createElement('span');
         precio.textContent = this.informacion.precio;
-        precio.classList.add('precioPlato');
+        precio.classList.add('precio');
 
         const img = document.createElement('img');
         img.setAttribute('src', this.informacion.imgUrl);
 
         const contenedorImg = document.createElement('div');
         contenedorImg.append(img);
-        contenedorImg.classList.add('contenedorImgPlato');
+        contenedorImg.classList.add('contenedorImg');
 
         const elemento = document.createElement('li');
         elemento.setAttribute('id', String(this.id));
-        elemento.append(nombre, descripcion, precio, contenedorImg, contenedorCantidad);
+        elemento.append(contenedorImg, nombre, descripcion, precio, contenedorCantidad);
 
         return elemento;
     }
