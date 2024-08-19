@@ -1,0 +1,91 @@
+:root {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-size: 16px;
+}
+
+ul {
+    padding: 0;
+}
+
+
+#pestañas {
+    background-color: antiquewhite;
+}
+
+#pestañas ul {
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+#pestañas li {
+    list-style: none;
+    background-color: aquamarine;
+    font-size: 1.5rem;
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#menu ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+
+
+}
+
+#menu li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: repeat(3, auto);
+    gap: 5px;
+}
+
+#menu h3 {
+    margin: 0;
+    background-color: blueviolet;
+    height: min-content;
+}
+
+.contenedorImg {
+    background-color: blue;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    grid-row: span 2;
+}
+
+.contenedorImg img {
+    height: 100px;
+    width: 150px;
+}
+
+.precio {
+    align-content: center;
+}
+
+.precio::before {
+    content: "$";
+}
+
+.contenedorCantidad {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedorCantidad button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-color: yellow;
+    cursor: pointer;
+}
