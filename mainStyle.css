@@ -1,5 +1,42 @@
 :root {
     box-sizing: border-box;
-    padding: 0;
+}
+.logo-nombre{
+    display: flex;
+}
+.logo-nombre h3{
+    margin-left: 1rem;
+}
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: white;
+}
+header .navegacion{
+    background-color: rgb(228, 228, 228);
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.navegacion ul {
+    list-style-type: none;
+    display: flex;
     margin: 0;
+    padding: 0;
+}
+
+.navegacion li {
+    margin: 0 3rem;
+}
+
+.navegacion a {
+    color: black;
+    text-decoration: solid;
+}
+
+#logo{
+    width: 4rem;
+    padding: 0;
 }
