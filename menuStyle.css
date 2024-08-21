@@ -1,9 +1,22 @@
 :root {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 
     font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    --main-background-color: #eee;
+    --pestaña-ul-background-color: #bbb;
+    --pestaña-li-background-color: #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: var(--main-background-color);
+    padding: 0 2vw;
 }
 
 ul {
@@ -13,29 +26,43 @@ ul {
 
 #pestañas {
     background-color: antiquewhite;
+
+    /* overflow: hidden; */
 }
 
 #pestañas ul {
     display: flex;
     justify-content: space-between;
-    background-color: aqua;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    padding: 4px;
+    height: 2.5rem;
+    width: 100%;
+
+    background-color: var(--pestaña-ul-background-color);
 }
 
 #pestañas li {
     list-style: none;
-    background-color: aquamarine;
-    font-size: 1.5rem;
-    width: 25%;
+    background-color: var(--pestaña-li-background-color);
+    font-size: 1rem;
+    font-weight: bolder;
+    height: 100%;
+    width: 100%;
+    margin: 0 1rem;
+    align-content: center;
     text-align: center;
     cursor: pointer;
+    border-radius: 1.2rem;
 }
+
 
 #menu ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 
-
+    
 }
 
 #menu li {
@@ -58,6 +85,8 @@ ul {
     width: 100%;
     height: 100%;
     grid-row: span 2;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .contenedorImg img {
