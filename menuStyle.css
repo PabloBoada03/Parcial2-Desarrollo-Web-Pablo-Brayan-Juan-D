@@ -13,10 +13,11 @@ ul {
 body{
     display: grid;
     grid-template-columns: 80% 20%;
-    grid-template-rows: repeat(2, min-content);  
+    grid-template-rows: 1fr min-content;  
     column-gap: 16px;
     padding: 0;
     margin: 0; 
+    height: 100vh;
 }
 
 main{
@@ -41,6 +42,10 @@ main{
     width: 25%;
     text-align: center;
     cursor: pointer;
+}
+
+#menu{
+    overflow-y: scroll ;
 }
 
 #menu ul {
@@ -124,6 +129,7 @@ main{
     grid-template-rows: repeat(2, 1fr);
     padding: 1rem;
     margin-bottom: 1rem;
+    margin-top: auto;
 }
 
 .subtituloCarrito{
@@ -142,4 +148,5 @@ main{
     color: #c8e9ff;
     text-decoration: none;
     font-size: 1rem;
+    margin-top: auto;
 }
