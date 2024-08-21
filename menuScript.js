@@ -1,4 +1,4 @@
-import { platos as informacionPlatos } from './platos.js';
+// import { platos as informacionPlatos } from './platos.js';
 
 
 
