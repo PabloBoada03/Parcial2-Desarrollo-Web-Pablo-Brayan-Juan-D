@@ -109,7 +109,7 @@ main{
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    background-color: #eed1d1;
+    background-color: #ffffff;
     border-radius: 15px;
     font-family: sans-serif;
     padding: 1rem;
@@ -122,4 +122,24 @@ main{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.subtituloCarrito{
+    color: #b9babd;
+}
+
+.costo{
+    color: #b9babd;
+}
+
+.SubmitBtn{
+    border:none;
+    border-radius: 15px;
+    padding: 1 rem;
+    background-color: #2260ff;
+    color: #c8e9ff;
+    text-decoration: none;
+    font-size: 1rem;
 }
