@@ -10,6 +10,19 @@ ul {
     padding: 0;
 }
 
+body{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: repeat(2, min-content);  
+    column-gap: 16px;
+    padding: 0;
+    margin: 0; 
+}
+
+main{
+    grid-column: 1;
+    grid-row: 2;
+}
 
 #pestañas {
     background-color: antiquewhite;
@@ -88,4 +101,45 @@ ul {
     font-weight: bolder;
     background-color: yellow;
     cursor: pointer;
+}
+
+/*Estilos del carrito de compras*/
+#carritoCompras{
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-family: sans-serif;
+    padding: 1rem;
+    
+}
+
+#contenedorPrecios{
+    background-color: #f2f6f9;
+    border-radius: 15px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.subtituloCarrito{
+    color: #b9babd;
+}
+
+.costo{
+    color: #b9babd;
+}
+
+.SubmitBtn{
+    border:none;
+    border-radius: 15px;
+    padding: 1 rem;
+    background-color: #2260ff;
+    color: #c8e9ff;
+    text-decoration: none;
+    font-size: 1rem;
 }
