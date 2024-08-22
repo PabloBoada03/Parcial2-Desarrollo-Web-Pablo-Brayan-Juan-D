@@ -1,7 +1,3 @@
-// import { platos as informacionPlatos } from './platos.js';
-
-
-
 class Plato {
     constructor(informacion) {
         this.informacion = informacion;
@@ -11,15 +7,15 @@ class Plato {
 
     crearElemento() {
 
-        const masBoton = document.createElement('button');
-        masBoton.textContent = "+";
-        masBoton.classList.add('masBoton');
-        masBoton.addEventListener('click', () => this.modificarCantidad());
+        const botonMas = document.createElement('button');
+        botonMas.textContent = "+";
+        botonMas.classList.add('botonMas');
+        botonMas.addEventListener('click', (event) => this.modificarCantidad(event));
 
-        const menosBoton = document.createElement('button');
-        menosBoton.textContent = "-";
-        menosBoton.classList.add('menosBoton');
-        menosBoton.addEventListener('click', () => this.modificarCantidad("menos"));
+        const botonMenos = document.createElement('button');
+        botonMenos.textContent = "-";
+        botonMenos.classList.add('botonMenos');
+        botonMenos.addEventListener('click', (event) => this.modificarCantidad(event, "menos"));
 
         const cantidad = document.createElement('span');
         cantidad.textContent = this.cantidad;
@@ -27,7 +23,7 @@ class Plato {
 
         const contenedorCantidad = document.createElement('div');
         contenedorCantidad.classList.add('contenedorCantidad');
-        contenedorCantidad.append(masBoton, cantidad, menosBoton);
+        contenedorCantidad.append(botonMenos, cantidad, botonMas);
 
         const nombre = document.createElement('h3');
         nombre.textContent = this.informacion.nombre;
@@ -55,7 +51,7 @@ class Plato {
         return elemento;
     }
 
-    modificarCantidad(tipo="mas"){
+    modificarCantidad(event, tipo="mas"){
         let cantidad = this.cantidad;
         cantidad += (tipo == "mas") ? 1 : -1;
 
@@ -65,18 +61,37 @@ class Plato {
             return;
         }
 
-        const elementoTemporal = document.getElementById(this.id);
+        let elementoPadre = event.target.parentElement;
+        
+        elementoPadre.childNodes.forEach(hijo => {
+            let claseActiva;
 
-        elementoTemporal.childNodes.forEach(hijo => {
-            if (hijo.classList == "contenedorCantidad") {
-                hijo.childNodes.forEach(nieto => {
-                    if (nieto.classList == "cantidad") {
-                        nieto.textContent = this.cantidad;
-                        return
-                    }
-                })
+            if (hijo.classList.contains("cantidad")) {
+                hijo.textContent = this.cantidad;
+                claseActiva = "cantidadActiva";
+            } else if (hijo.classList.contains("botonMenos")) {
+                claseActiva = "botonMenosActivo";
+            } else if (hijo.classList.contains("botonMas")) {
+                claseActiva = "botonMasActivo";
             }
+
+            if (claseActiva) {
+                if (this.cantidad > 0) {
+                    hijo.classList.add(claseActiva);
+                } else {
+                    hijo.classList.remove(claseActiva);
+                }
+            }
+            
         });
+
+        let elementoAbuelo = elementoPadre.parentElement;
+
+        if (this.cantidad > 0) {
+            elementoAbuelo.classList.add("platoActivo");
+        } else {
+            elementoAbuelo.classList.remove("platoActivo");
+        }
     }
 }
 
@@ -97,6 +112,13 @@ window.onload = () => {
             let categoria = event.target.id;
             let nuevaCategoria = "?categoria=" + categoria;
 
+            let padre = event.target.parentElement;
+            padre.childNodes.forEach(hijo => {
+                hijo.classList?.remove("pestañaActiva");
+            })
+
+            event.target.classList.add("pestañaActiva");
+
             window.history.pushState({ categoria }, '', nuevaCategoria);
             mostrarPestañas(platos);
         })
@@ -104,15 +126,33 @@ window.onload = () => {
 }
 
 function mostrarPestañas (platos) {
-    console.log("mostrando pestañas....");
     const contenedor = document.createElement('ul');
-    
     const parametrosBusqueda = new URLSearchParams(window.location.search);
 
     platos.forEach(plato => {
         let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entrante';
         if (plato.informacion.categoria.toLowerCase() == categoriaActual) {
-            contenedor.append(plato.crearElemento());
+            let platoCreado = plato.crearElemento();
+
+            platoCreado.childNodes.forEach(hijo => {
+                if (hijo.classList == "contenedorCantidad") {
+                    hijo.childNodes.forEach(nieto => {
+                        if (nieto.classList.contains("cantidad") && plato.cantidad > 0) {
+                            nieto.classList.add("cantidadActiva");
+                        } else if (nieto.classList.contains("botonMenos") && plato.cantidad > 0) {
+                            nieto.classList.add("botonMenosActivo");
+                        } else if (nieto.classList.contains("botonMas") && plato.cantidad > 0) {
+                            nieto.classList.add("botonMasActivo");
+                        }
+                    });
+                }
+            });
+
+            if (plato.cantidad > 0) {
+                platoCreado.classList.add("platoActivo");
+            }     
+
+            contenedor.append(platoCreado);
         }
     });
 
