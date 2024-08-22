@@ -122,6 +122,12 @@ window.onload = () => {
             window.history.pushState({ categoria }, '', nuevaCategoria);
             mostrarPestañas(platos);
         })
+
+        const parametrosBusqueda = new URLSearchParams(window.location.search);
+
+        if (pestaña.id == parametrosBusqueda.get('categoria')) {
+            pestaña.click();
+        }
     });
 }
 
