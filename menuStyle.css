@@ -16,7 +16,19 @@ body {
     padding: 0;
 }
 
-main {
+body{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr min-content;  
+    column-gap: 16px;
+    padding: 0;
+    margin: 0; 
+    height: 100vh;
+}
+
+main{
+    grid-column: 1;
+    grid-row: 2;
     background-color: var(--main-background-color);
     padding: 0 2vw;
 }
@@ -46,6 +58,10 @@ main {
     border-radius: 1.2rem;
 }
 
+
+#menu{
+    overflow-y: scroll ;
+}
 
 #menu ul {
     display: grid;
@@ -148,4 +164,52 @@ main {
     color: var(--main-text-color-activo);
     box-shadow: 0 0 10px #dadada;
     background-color: var(--pestaña-li-background-color);
+}
+
+
+/*Estilos del carrito de compras*/
+#carritoCompras{
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-family: sans-serif;
+    padding: 1rem;
+    
+}
+
+#contenedorPrecios{
+    background-color: #f2f6f9;
+    border-radius: 15px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: auto;
+}
+
+.subtituloCarrito{
+    color: #b9babd;
+}
+
+.costo{
+    color: #b9babd;
+}
+
+.SubmitBtn{
+    border:none;
+    border-radius: 15px;
+    padding: 1 rem;
+    background-color: #2260ff;
+    color: #c8e9ff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+#resumen{
+    margin-top: auto;
 }
