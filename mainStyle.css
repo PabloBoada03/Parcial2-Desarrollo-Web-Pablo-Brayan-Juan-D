@@ -1,9 +1,13 @@
 :root {
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+
+    --color-logo: #004aad;
 }
 
 body {
-    background-image: url(fotoFondo.png);
+    background-image: url(recursos/pagina/fotoFondo.png);
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
@@ -20,6 +24,7 @@ body {
 
 .navegacion img {
     width: 3rem;
+    margin-right: 10px;
 }
 
 .navegacionLogo {
@@ -31,8 +36,11 @@ body {
 }
 
 .navegacionLogo a {
+    color: var(--color-logo);
     text-decoration: none;
     padding-left: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .navegacionMenu {
@@ -44,6 +52,7 @@ body {
 
 .navegacionMenu li {
     margin-left: 30px;
+    font-weight: bold;
 }
 
 .navegacionMenu a {
@@ -60,24 +69,31 @@ body {
 #descripcionRestaurante {
     position: relative;
     text-align: center;
-    font-size: 2rem;
     height: auto;
     background-color: #ffffff;
     padding-bottom: 1rem;
+
 }
 
-#imagenPrincipal {
-    width: 100%;
-    height: auto;
-    filter: blur(2px);
-    position: relative;
+#presentacionInicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(recursos/pagina/fotoRestaurante.png);
+    min-height: 70vh;
+
+    box-shadow: inset 0 0 200px #222;
+}
+
+#descripcionRestaurante > p:last-child {
+    font-size: 1.2rem;
+    padding: 0 12vw;
+    color: #333;
 }
 
 #tituloPrincipal,
 #descripcionCorta {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;
@@ -87,8 +103,7 @@ body {
 }
 
 #tituloPrincipal {
-    top: 20%;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 #descripcionCorta {
@@ -111,34 +126,49 @@ body {
     font-size: 1.5rem;
 }
 
-.integrantes .pablo,
-.integrantes .brayan,
-.integrantes .juan {
+#miembros p {
+    margin: .5rem 0;
+}
+
+.integrantes img {
+    padding-bottom: .5rem;
+}
+
+.integrantes > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 25%;
     background-color: #a3a3a3;
-    color: #000000;
+    color: #333;
+    font-size: 1.2rem;
     text-align: center;
     margin: 2rem;
+    padding-bottom: 1rem;
     border-radius: 1rem;
 }
 
-.integrantes #fotoPerfil {
-    max-width: 70%;
+.contenedorImagenPerfil {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    overflow: hidden;
 }
+
+.fotoPerfil {
+    width: 100%;
+}
+
+
 
 #contacto {
     background-color: #ffffff;
     color: #000000;
     padding: 1rem;
     text-align: center;
-}
-
-.contacto {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     flex-wrap: wrap;
-    max-width: 1200px;
     margin: 0;
 }
 
@@ -170,7 +200,7 @@ body {
     .navegacionMenu li {
         margin: 10px 0;
         width: 100%;
-        text-align: left;
+        text-align: center;
     }
 
     .navegacionMenu a {
