@@ -1,4 +1,4 @@
-export const platos = [
+const informacionPlatos = [
     {
       id: 1,
       nombre: "Ensalada César",
