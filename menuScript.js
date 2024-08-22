@@ -105,7 +105,11 @@ window.onload = () => {
         platos.push(new Plato(informacion));
     })
 
-    mostrarPestañas(platos);
+    let parametrosBusqueda = new URLSearchParams(window.location.search);
+
+    if (!parametrosBusqueda.get('categoria')) {
+        window.history.pushState({ categoria: "entrante" }, '', "?categoria=entrante");
+    }
 
     pestañas.children.item(0).childNodes.forEach(pestaña => {
         pestaña.addEventListener('click', (event) => {
@@ -123,12 +127,14 @@ window.onload = () => {
             mostrarPestañas(platos);
         })
 
-        const parametrosBusqueda = new URLSearchParams(window.location.search);
+        parametrosBusqueda = new URLSearchParams(window.location.search); 
 
         if (pestaña.id == parametrosBusqueda.get('categoria')) {
             pestaña.click();
         }
     });
+
+    mostrarPestañas(platos);
 }
 
 function mostrarPestañas (platos) {

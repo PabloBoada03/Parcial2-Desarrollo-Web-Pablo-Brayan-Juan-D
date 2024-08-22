@@ -14,23 +14,18 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
 
-body{
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 1fr 20%;
     grid-template-rows: 1fr min-content;  
-    column-gap: 16px;
-    padding: 0;
-    margin: 0; 
-    height: 100vh;
+    column-gap: 1rem;
 }
 
 main{
     grid-column: 1;
     grid-row: 2;
     background-color: var(--main-background-color);
-    padding: 0 2vw;
+    padding: 1vh 2vw;
 }
  
 #pestañas ul {
