@@ -14,7 +14,12 @@
     <header>
         <nav>
             <div class="navegacion">
-                <span class="navegacionLogo"><img src="logo.png" alt="logo"></img><a href="#">Trio Gourmet</a></span>
+                <span class="navegacionLogo">
+                    <a href="index.html">
+                        <img src="recursos/pagina/logo.png" alt="logo"></img>
+                        Trio Gourmet
+                    </a>
+                </span>
                 <ul class="navegacionMenu">
                     <li><a href="#">MENU</a></li>
                     <li><a href="#">LISTA ORDENES</a></li>
@@ -41,22 +46,36 @@
         </div>
     </main>
 
-    <aside id="carritoCompras">
-        <h2 class="tituloCarrito">Detalles de la orden</h2>
-        <div id="ordenes">0</div>
-        <h2 id="resumen" class="tituloCarrito">Resumen de tu orden</h2>
-        <div id="contenedorPrecios">
-            <h3 class="subtituloCarrito">Subtotal</h3>
-            <h3 class="costo">$</h3>
-            <h3 class="subtituloCarrito">Impuesto</h3>
-            <h3 class="costo">$</h3>
+    <aside>
+        <div id="carritoCompras">
+            <h2 class="tituloCarrito">Detalles de la orden</h2>
+            <div id="ordenes">0</div>
+            <h2 id="resumen" class="tituloCarrito">Resumen de tu orden</h2>
+            <div id="contenedorPrecios">
+                <h3 class="subtituloCarrito">Subtotal</h3>
+                <h3 class="costo">$</h3>
+                <h3 class="subtituloCarrito">Impuesto</h3>
+                <h3 class="costo">$</h3>
+            </div>
+            <button id="submit" class="SubmitBtn"><a href="menu.html">Procesa tu orden</a></button>
+    
         </div>
-        <button id="submit" class="SubmitBtn"><a href="menu.html">Procesa tu orden</a></button>
-
     </aside>
+    
 
-    <footer>
-
+    <footer id="contacto">
+        <div class="contenido">
+            <h2>Contactanos</h2>
+            <p>Dirrecion: Calle 76 #7-9, Chia, Colombia
+                <br>Telefono: 1234567
+                <br>Email: trio.gourmet@gmail.com
+            </p>
+        </div>
+        <div class="redesSociales">
+            <a href="#"><img src="recursos/pagina/facebook.webp" alt="Facebook"></a>
+            <a href="#"><img src="recursos/pagina/instagram.webp" alt="X"></a>
+            <a href="#"><img src="recursos/pagina/x.avif" alt="Instagram"></a>
+        </div>
     </footer>
 </body>
 </html>

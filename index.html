@@ -13,8 +13,12 @@
     <header>
         <nav>
             <div class="navegacion">
-                <span class="navegacionLogo"><img src="logo.png" alt="logo"></img><a href="index.html">Trio
-                        Gourmet</a></span>
+                <span class="navegacionLogo">
+                    <a href="index.html">
+                        <img src="recursos/pagina/logo.png" alt="logo"></img>
+                        Trio Gourmet
+                    </a>
+                </span>
                 <ul class="navegacionMenu">
                     <li><a href="menu.html">MENU</a></li>
                     <li><a href="#">LISTA ORDENES</a></li>
@@ -27,11 +31,14 @@
     </header>
     <main>
         <section id="descripcionRestaurante">
-            <img src="fotoRestaurante.png" alt="imagen" id="imagenPrincipal">
-            <h1 id="tituloPrincipal">Bienvenidos a Trio Gourmet</h1>
-            <p id="descripcionCorta">El lugar donde viviras una experiencia unica llena de sabores increibles, tradicion, elegancia en un mismo lugar.
-            </br>Preparate para vivir una gran experiencia junto a nuestro equipo.
-            </p>
+            <!-- <img src="fotoRestaurante.png" alt="imagen" id="imagenPrincipal"> -->
+            <div id="presentacionInicial">
+                <h1 id="tituloPrincipal">Bienvenidos a Trio Gourmet</h1>
+                <p id="descripcionCorta">El lugar donde viviras una experiencia unica llena de sabores increibles, tradicion, elegancia en un mismo lugar.
+                </br>Preparate para vivir una gran experiencia junto a nuestro equipo.
+                </p>
+            </div>
+            
             <p>Trio Gourmet es un restaurante que fusiona la elegancia y la tradición en un espacio acogedor,
                 ofreciendo una experiencia gastronómica única que deleita a los sentidos. Nos enorgullecemos
                 de nuestra propuesta culinaria que combina ingredientes frescos y de alta calidad con técnicas
@@ -44,7 +51,9 @@
             <div class="integrantes">
                 <div class="pablo">
                     <h1>Pablo Boada</h1>
-                    <img src="fotoPablo.jpg" alt="foto" id="fotoPerfil"></img>
+                    <div class="contenedorImagenPerfil">
+                        <img src="recursos/fotos/fotoPablo.jpg" alt="foto" class="fotoPerfil"></img>
+                    </div>
                     <p>Estudiante</p>
                     <p>21 años</p>
                     <p>Ingenieria informatica</p>
@@ -53,16 +62,20 @@
                 </div>
                 <div class="brayan">
                     <h1>Brayan</h1>
-                    <img src="#" alt="foto" id="fotoPerfil"></img>
+                    <div class="contenedorImagenPerfil">
+                        <img src="recursos/fotos/fotoBrayan.jpg" alt="foto" class="fotoPerfil"></img>
+                    </div>
                     <p>Estudiante</p>
-                    <p> años</p>
+                    <p>19 años</p>
                     <p>Ingenieria informatica</p>
                     <p>Universidad de la Sabana</p>
                     <p>Tercer semestre</p>
                 </div>
                 <div class="juan">
                     <h1>Juan Henao</h1>
-                    <img src="fotoJuan.png" alt="foto" id="fotoPerfil"></img>
+                    <div class="contenedorImagenPerfil">
+                        <img src="recursos/fotos/fotoJuan.png" alt="foto" class="fotoPerfil"></img>
+                    </div>
                     <p>Estudiante</p>
                     <p>18 años</p>
                     <p>Ingenieria informatica</p>
@@ -72,7 +85,7 @@
             </div>
         </section>
     </main>
-    <footer>
+    
     <footer id="contacto">
         <div class="contenido">
             <h2>Contactanos</h2>
@@ -82,9 +95,9 @@
             </p>
         </div>
         <div class="redesSociales">
-            <a href="#"><img src="facebook.webp" alt="Facebook"></a>
-            <a href="#"><img src="x.avif" alt="X"></a>
-            <a href="#"><img src="instagram.webp" alt="Instagram"></a>
+            <a href="#"><img src="recursos/pagina/facebook.webp" alt="Facebook"></a>
+            <a href="#"><img src="recursos/pagina/instagram.webp" alt="X"></a>
+            <a href="#"><img src="recursos/pagina/x.avif" alt="Instagram"></a>
         </div>
     </footer>
 
