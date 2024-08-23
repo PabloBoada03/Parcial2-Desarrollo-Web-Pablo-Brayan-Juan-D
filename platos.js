@@ -165,7 +165,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Refresco de cola.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/coca.webp"
     },
     {
       id: 22,
@@ -173,7 +173,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Café expreso clásico.",
       precio: 2.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/expresso.jpg"
     },
     {
       id: 23,
@@ -181,7 +181,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Zumo de naranja natural.",
       precio: 3.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/naranja.webp"
     },
     {
       id: 24,
@@ -189,7 +189,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Agua mineral sin gas.",
       precio: 1.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/mineral.webp"
     },
     {
       id: 25,
@@ -197,7 +197,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Bebida refrescante de té con limón.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/te.jpg"
     },
     {
       id: 26,
@@ -205,7 +205,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Batido cremoso de fresa.",
       precio: 4.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/fresa.avif"
     },
     {
       id: 27,
@@ -213,7 +213,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Cerveza artesanal local.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/cerveza.jpeg"
     },
     {
       id: 28,
@@ -221,7 +221,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Limonada fresca con hielo.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/limonada.jpg"
     },
     {
       id: 29,
@@ -229,7 +229,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Bebida caliente de chocolate.",
       precio: 3.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/choco.webp"
     },
     {
       id: 30,
@@ -237,7 +237,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Agua mineral con gas.",
       precio: 1.8,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/gas.webp"
     },
     {
       id: 31,
@@ -253,7 +253,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Helado de vainilla con sirope de chocolate.",
       precio: 4.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/helado.jpg"
     },
     {
       id: 33,
@@ -261,7 +261,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Flan de huevo con caramelo.",
       precio: 3.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/flan.jpg"
     },
     {
       id: 34,
@@ -269,7 +269,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Brownie de chocolate con nueces.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/brownie.jpg"
     },
     {
       id: 35,
@@ -277,7 +277,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Tarta de manzana al horno con canela.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/manzana.jpeg"
     },
     {
       id: 36,
@@ -285,7 +285,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Mousse suave de chocolate.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/mousse.jpeg"
     },
     {
       id: 37,
@@ -293,7 +293,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Postre italiano de nata cocida con frutas del bosque.",
       precio: 5.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/pannaCotta.jpg"
     },
     {
       id: 38,
@@ -301,7 +301,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Clásico tiramisú con café y cacao.",
       precio: 6.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/tiramisu.jpg"
     },
     {
       id: 39,
@@ -309,7 +309,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Gelatina de fresa servida con crema.",
       precio: 3.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/gelatina.jpg"
     },
     {
       id: 40,
@@ -317,7 +317,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Profiteroles rellenos de crema y cubiertos de chocolate.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/profiterol.jpg"
     }
   ];
   

@@ -59,3 +59,14 @@ https://www.google.com/imgres?q=Raviolis%20de%20Espinaca&imgurl=https%3A%2F%2Fww
 https://www.google.com/imgres?q=Fajitas%20de%20Pollo%0D%0A&imgurl=https%3A%2F%2Fwww.laespanolaaceites.com%2Fwp-content%2Fuploads%2F2019%2F06%2Ffajitas-de-pollo.jpg&imgrefurl=https%3A%2F%2Fwww.laespanolaaceites.com%2Frecetas%2Ffajitas-de-pollo%2F&docid=A_T1J5psnZ3wIM&tbnid=KaNTt6WrCAbWuM&vet=12ahUKEwi45pnAiIqIAxVARjABHWi5D8cQM3oECBsQAA..i&w=900&h=530&hcb=2&ved=2ahUKEwi45pnAiIqIAxVARjABHWi5D8cQM3oECBsQAA
 
 https://www.google.com/imgres?q=Hamburguesa%20Gourmet&imgurl=https%3A%2F%2Fcontenidoparablog.com%2Fwp-content%2Fuploads%2F2021%2F06%2FCuales-son-las-hamburguesas-gourmet.jpg&imgrefurl=https%3A%2F%2Fcontenidoparablog.com%2Fcuales-son-las-hamburguesas-gourmet%2F&docid=GIZ2iA2a_DmerM&tbnid=yzaXLvemDDumhM&vet=12ahUKEwjLnuTOiIqIAxXRRDABHWwPCNsQM3oECBUQAA..i&w=1280&h=854&hcb=2&ved=2ahUKEwjLnuTOiIqIAxXRRDABHWwPCNsQM3oECBUQAA
+
+https://lavaquita.co/products/gaseosa_coca_cola_600_ml
+https://coycoacademia.com/es-espresso-o-expresso-la-respuesta-es-si/
+https://www.glamour.mx/articulos/beneficios-de-tomar-jugo-de-naranja-todos-los-dias
+https://www.exito.com/agua-mineral-natural-manantial-500-mililitro-3009820/p
+https://www.bonviveur.es/recetas/te-helado
+https://www.finedininglovers.com/es/recetas/bebidas/batido-de-fresa
+https://www.republicacervecerashop.com.mx/blogs/news/cerveza-artesanal-mas-saludable-que-una-cerveza-convencional
+https://www.mycolombianrecipes.com/es/limonada-de-pina/
+https://www.vitamixespana.com/recetas/bebidas/chocolate-caliente/
+https://www.olimpica.com.co/agua-con-gas-manantial-600-ml-7702609005488-1184613/p
