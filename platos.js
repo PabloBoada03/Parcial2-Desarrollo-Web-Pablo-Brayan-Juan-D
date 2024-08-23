@@ -165,7 +165,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Refresco de cola.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/coca.webp"
     },
     {
       id: 22,
@@ -173,7 +173,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Café expreso clásico.",
       precio: 2.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/expresso.jpg"
     },
     {
       id: 23,
@@ -181,7 +181,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Zumo de naranja natural.",
       precio: 3.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/naranja.webp"
     },
     {
       id: 24,
@@ -189,7 +189,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Agua mineral sin gas.",
       precio: 1.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/mineral.webp"
     },
     {
       id: 25,
@@ -197,7 +197,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Bebida refrescante de té con limón.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/te.jpg"
     },
     {
       id: 26,
@@ -205,7 +205,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Batido cremoso de fresa.",
       precio: 4.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/fresa.avif"
     },
     {
       id: 27,
@@ -213,7 +213,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Cerveza artesanal local.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/cerveza.jpeg"
     },
     {
       id: 28,
@@ -221,7 +221,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Limonada fresca con hielo.",
       precio: 2.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/limonada.jpg"
     },
     {
       id: 29,
@@ -229,7 +229,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Bebida caliente de chocolate.",
       precio: 3.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/choco.webp"
     },
     {
       id: 30,
@@ -237,7 +237,7 @@ const informacionPlatos = [
       categoria: "Bebidas",
       descripcion: "Agua mineral con gas.",
       precio: 1.8,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/bebidas/gas.webp"
     },
     {
       id: 31,
