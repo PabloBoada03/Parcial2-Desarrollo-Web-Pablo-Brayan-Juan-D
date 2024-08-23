@@ -245,7 +245,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Tarta de queso con base de galleta y mermelada de frutas.",
       precio: 5.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/queso.jpg"
     },
     {
       id: 32,
