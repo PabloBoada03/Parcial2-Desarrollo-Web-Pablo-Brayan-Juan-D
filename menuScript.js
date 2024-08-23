@@ -1,6 +1,7 @@
 class Plato {
-    constructor(informacion) {
+    constructor(informacion, carritoCompras) {
         this.informacion = informacion;
+        this.carritoCompras = carritoCompras;
         this.id = this.informacion.id;
         this.cantidad = 0;
     }
@@ -63,6 +64,8 @@ class Plato {
 
         let elementoPadre = event.target.parentElement;
         
+        this.carritoCompras.agregarPlato(this);
+
         elementoPadre.childNodes.forEach(hijo => {
             let claseActiva;
 
@@ -97,12 +100,12 @@ class Plato {
 
 window.onload = () => {
 
-    const pestañas = document.getElementById('pestañas');
     const menu = document.getElementById('menu');
     let platos = [];
+    const carrito = new Carrito();
 
     informacionPlatos.forEach(informacion => {
-        platos.push(new Plato(informacion));
+        platos.push(new Plato(informacion, carrito));
     })
 
     let parametrosBusqueda = new URLSearchParams(window.location.search);
@@ -110,6 +113,8 @@ window.onload = () => {
     if (!parametrosBusqueda.get('categoria')) {
         window.history.pushState({ categoria: "entrante" }, '', "?categoria=entrante");
     }
+
+    const pestañas = document.getElementById('pestañas');
 
     pestañas.children.item(0).childNodes.forEach(pestaña => {
         pestaña.addEventListener('click', (event) => {
@@ -131,6 +136,17 @@ window.onload = () => {
 
         if (pestaña.id == parametrosBusqueda.get('categoria')) {
             pestaña.click();
+        }
+    });
+
+    const enviar = document.getElementById('submit');
+    console.log(enviar);
+
+    enviar.addEventListener('click', () => {
+        let envio = carrito.obtenerEnvio();
+
+        if (envio != "[]") {
+            window.location.href = "index.html?=envio" + envio;
         }
     });
 

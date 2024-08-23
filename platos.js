@@ -5,7 +5,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Ensalada de lechuga romana, parmesano y croutones con aderezo César.",
       precio: 7.5,
-      imgUrl: "none"
+      imgUrl: ""
     },
     {
       id: 2,
