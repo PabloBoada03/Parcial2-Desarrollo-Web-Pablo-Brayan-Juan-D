@@ -5,7 +5,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Ensalada de lechuga romana, parmesano y croutones con aderezo César.",
       precio: 7.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/ensaladaCesar.jpeg"
     },
     {
       id: 2,
@@ -13,7 +13,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Pan tostado con tomate fresco, ajo y albahaca.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/bruschetta.avif"
     },
     {
       id: 3,
@@ -21,7 +21,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Sopa fría de tomate con pepino y pimientos.",
       precio: 6.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/Gazpacho.jpeg"
     },
     {
       id: 4,
@@ -29,7 +29,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Deliciosas croquetas rellenas de jamón ibérico.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/CroquetasdeJamón.jpeg"
     },
     {
       id: 5,
@@ -37,7 +37,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Patatas fritas acompañadas de salsa brava picante.",
       precio: 4.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/PatatasBravas.jpg"
     },
     {
       id: 6,
@@ -45,7 +45,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Aros de calamar empanizados y fritos con salsa alioli.",
       precio: 8.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/Calamares Fritos.jpeg"
     },
     {
       id: 7,
@@ -53,7 +53,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Sopa tradicional de ajo con huevo escalfado.",
       precio: 5.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/SopadeAjo.jpeg"
     },
     {
       id: 8,
@@ -61,7 +61,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Crema de garbanzos con pan pita.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/Hummus.jpeg"
     },
     {
       id: 9,
@@ -69,7 +69,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Atún fresco marinado con aguacate y soja.",
       precio: 12.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/TartardeAtun.jpeg"
     },
     {
       id: 10,
@@ -77,7 +77,7 @@ const informacionPlatos = [
       categoria: "Entrante",
       descripcion: "Pulpo cocido servido con patatas y pimentón.",
       precio: 9.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/entrantes/Gallega.jpeg"
     },
     {
       id: 11,
@@ -85,7 +85,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Arroz con mariscos frescos y especias.",
       precio: 15.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/PaellaMariscos.jpeg"
     },
     {
       id: 12,
@@ -93,7 +93,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Filete de res a la parrilla con verduras salteadas.",
       precio: 18.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/FileteRes.jpeg"
     },
     {
       id: 13,
@@ -101,7 +101,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Pasta con salsa de huevo, queso y panceta.",
       precio: 13.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/PastaCarbonara.jpeg"
     },
     {
       id: 14,
@@ -109,7 +109,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Pierna de cordero asada con hierbas y papas.",
       precio: 22.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/CorderoAsado.jpeg"
     },
     {
       id: 15,
@@ -117,7 +117,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Pizza con tomate, mozzarella y albahaca fresca.",
       precio: 10.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/PizzaMargherita.jpeg"
     },
     {
       id: 16,
@@ -125,7 +125,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Filete de salmón a la plancha con ensalada.",
       precio: 17.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/SalmónPlancha.jpeg"
     },
     {
       id: 17,
@@ -133,7 +133,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Pollo en salsa de curry con arroz basmati.",
       precio: 12.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/PolloCurry.jpg"
     },
     {
       id: 18,
@@ -141,7 +141,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Pasta rellena de espinacas y ricota en salsa de tomate.",
       precio: 11.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/RaviolisEspinaca.jpeg"
     },
     {
       id: 19,
@@ -149,7 +149,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Fajitas de pollo con pimientos y cebollas.",
       precio: 14.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/Fajitas.jpeg"
     },
     {
       id: 20,
@@ -157,7 +157,7 @@ const informacionPlatos = [
       categoria: "Principal",
       descripcion: "Hamburguesa de carne premium con queso cheddar y tocino.",
       precio: 13.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/principales/HamburguesaGourmet.jpeg"
     },
     {
       id: 21,
