@@ -177,7 +177,7 @@ aside {
     padding: 1.2rem;
 }
 
-#carritoCompras{
+#carrito{
     grid-column: 2;
     grid-row: 2;
     display: flex;
@@ -193,7 +193,6 @@ aside {
     position: sticky;
     top: 20px;
     right: 0;
-    
 }
 
 #contenedorPrecios{
@@ -204,7 +203,6 @@ aside {
     grid-template-rows: repeat(2, 1fr);
     padding: 1rem;
     margin-bottom: 1rem;
-    margin-top: auto;
 }
 
 .subtituloCarrito{
@@ -228,6 +226,76 @@ aside {
 
 #resumen{
     margin-top: auto;
+}
+
+
+#ordenes {
+    background-color: var(--pestaña-ul-background-color);
+    padding: 5px;
+    border-radius: 5px;
+    height: 45vh;
+    overflow-y: auto;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tituloCarrito {
+    margin: 1rem 0;
+}
+
+.tituloCarrito:first-child {
+    margin-top: 0;
+}
+
+#ordenes li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#ordenes h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#ordenes .descripcion {
+    font-size: .8rem;
+    font-weight: 100;
+}
+
+#ordenes .precio {
+    font-size: .9rem;
+    color: #b9babd;
+}
+
+#ordenes .precio::before {
+    content: "Valor Unitario: $";
+    color: #b9babd;
+    font-size: .9rem;
+    font-weight: 100;
+}
+
+#ordenes .botonMenos,
+#ordenes .botonMas {
+    display: none;
+}
+
+#ordenes .cantidad {
+    font-size: .9rem;
+    color: #b9babd;
+}
+
+#ordenes .cantidad::before {
+    content: "Cantidad: ";
+    font-size: .9rem;
+    color: #b9babd;
+}
+
+#submit {
+    height: 40px;
 }
 
 
