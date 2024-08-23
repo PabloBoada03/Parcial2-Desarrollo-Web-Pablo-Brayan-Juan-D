@@ -253,7 +253,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Helado de vainilla con sirope de chocolate.",
       precio: 4.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/helado.jpg"
     },
     {
       id: 33,
@@ -261,7 +261,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Flan de huevo con caramelo.",
       precio: 3.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/flan.jpg"
     },
     {
       id: 34,
@@ -269,7 +269,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Brownie de chocolate con nueces.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/brownie.jpg"
     },
     {
       id: 35,
@@ -277,7 +277,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Tarta de manzana al horno con canela.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/manzana.jpeg"
     },
     {
       id: 36,
@@ -285,7 +285,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Mousse suave de chocolate.",
       precio: 4.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/mousse.jpeg"
     },
     {
       id: 37,
@@ -293,7 +293,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Postre italiano de nata cocida con frutas del bosque.",
       precio: 5.5,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/pannaCotta.jpg"
     },
     {
       id: 38,
@@ -301,7 +301,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Clásico tiramisú con café y cacao.",
       precio: 6.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/tiramisu.jpg"
     },
     {
       id: 39,
@@ -309,7 +309,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Gelatina de fresa servida con crema.",
       precio: 3.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/gelatina.jpg"
     },
     {
       id: 40,
@@ -317,7 +317,7 @@ const informacionPlatos = [
       categoria: "Postres",
       descripcion: "Profiteroles rellenos de crema y cubiertos de chocolate.",
       precio: 5.0,
-      imgUrl: "none"
+      imgUrl: "recursos/fotos/COMIDA/postres/profiterol.jpg"
     }
   ];
   
