@@ -1,12 +1,12 @@
 # Parcial1-Desarrollo-Web-Pablo-Brayan-Juan-D
 
+# Parcial 1 Desarrollo Web 2024-2
 
+### Programado por:
+- **Brayan Presiga: 301424**
+- **Juan David Henao: 314237**
+- **Pablo Boada Rozo: 314049**
 
-IDEAS
+# DISCLAIMER:
+Todas las imágenes fueron tomadas de los siguientes links: 
 
-plato, imagen + nombre
-plato:hover, adicionar y por debajo la descripción del plato
-o, plato:hover, boton de agregar apareciendo desde el lateral derecho
-
-carrito, absolute esquina inferior izquierda
-o, carrito, barra lateral: tal vez, que apareza y desaparezca según se agreguen las compras
