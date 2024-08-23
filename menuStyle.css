@@ -183,8 +183,6 @@ aside {
     font-family: sans-serif;
     padding: 1rem;
 
-    /* box-sizing: content-box; */
-    /* margin: 1.2rem; */
     min-height: 80vh;
     height: min-content;
 
