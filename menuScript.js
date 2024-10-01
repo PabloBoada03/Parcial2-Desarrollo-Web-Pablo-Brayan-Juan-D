@@ -111,7 +111,7 @@ window.onload = () => {
     let parametrosBusqueda = new URLSearchParams(window.location.search);
 
     if (!parametrosBusqueda.get('categoria')) {
-        window.history.pushState({ categoria: "entrante" }, '', "?categoria=entrante");
+        window.history.pushState({ categoria: "entrada" }, '', "?categoria=entrada");
     }
 
     const pestañas = document.getElementById('pestañas');
@@ -158,7 +158,7 @@ function mostrarPestañas (platos) {
     const parametrosBusqueda = new URLSearchParams(window.location.search);
 
     platos.forEach(plato => {
-        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entrante';
+        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entrada';
         if (plato.informacion.categoria.toLowerCase() == categoriaActual) {
             let platoCreado = plato.crearElemento();
 

@@ -2,82 +2,82 @@ const informacionPlatos = [
     {
       id: 1,
       nombre: "Ensalada César",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Ensalada de lechuga romana, parmesano y croutones con aderezo César.",
       precio: 7.5,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/ensaladaCesar.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/ensaladaCesar.jpeg"
     },
     {
       id: 2,
       nombre: "Bruschetta",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Pan tostado con tomate fresco, ajo y albahaca.",
       precio: 5.0,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/bruschetta.avif"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/bruschetta.avif"
     },
     {
       id: 3,
       nombre: "Gazpacho",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Sopa fría de tomate con pepino y pimientos.",
       precio: 6.0,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/Gazpacho.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/Gazpacho.jpeg"
     },
     {
       id: 4,
       nombre: "Croquetas de Jamón",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Deliciosas croquetas rellenas de jamón ibérico.",
       precio: 4.5,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/CroquetasdeJamón.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/CroquetasdeJamón.jpeg"
     },
     {
       id: 5,
       nombre: "Patatas Bravas",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Patatas fritas acompañadas de salsa brava picante.",
       precio: 4.0,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/PatatasBravas.jpg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/PatatasBravas.jpg"
     },
     {
       id: 6,
       nombre: "Calamares Fritos",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Aros de calamar empanizados y fritos con salsa alioli.",
       precio: 8.5,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/Calamares Fritos.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/Calamares Fritos.jpeg"
     },
     {
       id: 7,
       nombre: "Sopa de Ajo",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Sopa tradicional de ajo con huevo escalfado.",
       precio: 5.5,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/SopadeAjo.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/SopadeAjo.jpeg"
     },
     {
       id: 8,
       nombre: "Hummus",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Crema de garbanzos con pan pita.",
       precio: 4.5,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/Hummus.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/Hummus.jpeg"
     },
     {
       id: 9,
       nombre: "Tartar de Atún",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Atún fresco marinado con aguacate y soja.",
       precio: 12.0,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/TartardeAtun.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/TartardeAtun.jpeg"
     },
     {
       id: 10,
       nombre: "Pulpo a la Gallega",
-      categoria: "Entrante",
+      categoria: "Entrada",
       descripcion: "Pulpo cocido servido con patatas y pimentón.",
       precio: 9.0,
-      imgUrl: "recursos/fotos/COMIDA/entrantes/Gallega.jpeg"
+      imgUrl: "recursos/fotos/COMIDA/Entradas/Gallega.jpeg"
     },
     {
       id: 11,

@@ -166,7 +166,7 @@ body {
     letter-spacing: 5px;
     font-size: 2.5rem;
 
-    color: var(--color-logo);
+    color: white;
     filter: drop-shadow(0 0 10px var(--color-logo));
 }
 
