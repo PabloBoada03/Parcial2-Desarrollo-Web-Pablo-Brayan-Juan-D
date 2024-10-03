@@ -1,21 +1,21 @@
-window.onload = () => {
+window.onload = async () => {
     // Extrae la información de los platos
-    let platos = [];
     const carrito = new Carrito();
+    let platos = [];
+    informacionPlatos = await obtenerPlatosAPI();
     informacionPlatos.forEach(informacion => platos.push(new Plato(informacion, carrito)));
 
     // Se obtienen los datos almacenados en localStorage
     carrito.items = obtenerPedidoAlmacenado(carrito);
-    // console.log(carrito.items);
     carrito.actualizarCarrito();
 
-    // Se actualizan los platos de la base de datos con la información almacenada en localStorage
+    // Se actualizan los platos de la base de datos con la información almacenada en localStorage   
     actualizarCantidadPlatos(platos, carrito.items);
 
     // Chequea que categoría se desea ver
     let parametrosBusqueda = new URLSearchParams(window.location.search);
     if (!parametrosBusqueda.get('categoria')) {
-        window.history.pushState({ categoria: "entrada" }, '', "?categoria=entrada");
+        window.history.pushState({ categoria: "entradas" }, '', "?categoria=entradas");
     }
 
     // Asigna funcionalidad a las pestañas
@@ -67,13 +67,31 @@ window.onload = () => {
 
 // Funciones
 
+const apiDatos = 'https://script.google.com/macros/s/AKfycbzbRgQm2M03Jh_JQ1xTdWjm8H6xl0dkSQXuo1o5oHCflh-pnmaENpyEV5sjsQE6TE2-Ow/exec'; // Enlace de la API donde estamos solicitando información de los platos
+
+async function obtenerPlatosAPI() {
+    const respuesta = await fetch(apiDatos)
+        .then(response => response.json())
+        .then(response => response.data.map(plato => ({
+        id: plato.ID,
+        categoria: plato.CATEGORIA,
+        nombre: plato.NOMBRE,
+        descripcion: plato.DESCRIPCION,
+        precio: plato.PRECIO,
+        imgUrl: plato.IMGURL
+        })))
+        .catch(error => console.log(error));
+
+    return respuesta;
+  }
+
 function mostrarPlatos (platos) {
     const menu = document.getElementById('menu');
     const contenedor = document.createElement('ul');
     const parametrosBusqueda = new URLSearchParams(window.location.search);
 
     platos.forEach(plato => {
-        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entrada';
+        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entradas';
         if (plato.informacion.categoria.toLowerCase() == categoriaActual) {
             let platoCreado = plato.crearElemento();
 
