@@ -30,7 +30,7 @@ window.onload = () => {
     // Se muestra el pedido, el total y la información guardada del usuario
     agregarElementosPedido();
 
-    document.getElementById('total').innerHTML = localStorage.getItem('total') ?? 0;
+    document.getElementById('total').innerHTML = (Number(localStorage.getItem('total') ?? 0)).toFixed(3);
 
     nombreCliente.setAttribute('value', localStorage.getItem('nombreCliente') ?? '');
     telefonoCliente.setAttribute('value', localStorage.getItem('telefonoCliente') ?? '');
