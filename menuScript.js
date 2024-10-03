@@ -7,7 +7,6 @@ class Plato {
     }
 
     crearElemento() {
-
         const botonMas = document.createElement('button');
         botonMas.textContent = "+";
         botonMas.classList.add('botonMas');
@@ -52,9 +51,9 @@ class Plato {
         return elemento;
     }
 
-    modificarCantidad(event, tipo="mas"){
+    modificarCantidad(event, tipo = "mas") {
         let cantidad = this.cantidad;
-        cantidad += (tipo == "mas") ? 1 : -1;
+        cantidad += (tipo === "mas") ? 1 : -1;
 
         if (cantidad >= 0) {
             this.cantidad = cantidad;
@@ -63,29 +62,32 @@ class Plato {
         }
 
         let elementoPadre = event.target.parentElement;
-        
+
+        // Actualiza el carrito
         this.carritoCompras.agregarPlato(this);
 
+        // Actualiza la cantidad en el DOM
         elementoPadre.childNodes.forEach(hijo => {
-            let claseActiva;
-
             if (hijo.classList.contains("cantidad")) {
                 hijo.textContent = this.cantidad;
-                claseActiva = "cantidadActiva";
-            } else if (hijo.classList.contains("botonMenos")) {
-                claseActiva = "botonMenosActivo";
-            } else if (hijo.classList.contains("botonMas")) {
-                claseActiva = "botonMasActivo";
-            }
-
-            if (claseActiva) {
                 if (this.cantidad > 0) {
-                    hijo.classList.add(claseActiva);
+                    hijo.classList.add("cantidadActiva");
                 } else {
-                    hijo.classList.remove(claseActiva);
+                    hijo.classList.remove("cantidadActiva");
+                }
+            } else if (hijo.classList.contains("botonMenos")) {
+                if (this.cantidad > 0) {
+                    hijo.classList.add("botonMenosActivo");
+                } else {
+                    hijo.classList.remove("botonMenosActivo");
+                }
+            } else if (hijo.classList.contains("botonMas")) {
+                if (this.cantidad > 0) {
+                    hijo.classList.add("botonMasActivo");
+                } else {
+                    hijo.classList.remove("botonMasActivo");
                 }
             }
-            
         });
 
         let elementoAbuelo = elementoPadre.parentElement;
@@ -97,101 +99,3 @@ class Plato {
         }
     }
 }
-
-window.onload = () => {
-
-    const menu = document.getElementById('menu');
-    let platos = [];
-    const carrito = new Carrito();
-
-    informacionPlatos.forEach(informacion => {
-        platos.push(new Plato(informacion, carrito));
-    })
-
-    let parametrosBusqueda = new URLSearchParams(window.location.search);
-
-    if (!parametrosBusqueda.get('categoria')) {
-        window.history.pushState({ categoria: "entrada" }, '', "?categoria=entrada");
-    }
-
-    const pestañas = document.getElementById('pestañas');
-
-    pestañas.children.item(0).childNodes.forEach(pestaña => {
-        pestaña.addEventListener('click', (event) => {
-            let categoria = event.target.id;
-            let nuevaCategoria = "?categoria=" + categoria;
-
-            let padre = event.target.parentElement;
-            padre.childNodes.forEach(hijo => {
-                hijo.classList?.remove("pestañaActiva");
-            })
-
-            event.target.classList.add("pestañaActiva");
-
-            window.history.pushState({ categoria }, '', nuevaCategoria);
-            mostrarPestañas(platos);
-        })
-
-        parametrosBusqueda = new URLSearchParams(window.location.search); 
-
-        if (pestaña.id == parametrosBusqueda.get('categoria')) {
-            pestaña.click();
-        }
-    });
-
-    const enviar = document.getElementById('submit');
-    console.log(enviar);
-
-    enviar.addEventListener('click', () => {
-        let envio = carrito.obtenerEnvio();
-
-        if (envio != "[]") {
-            window.location.href = "index.html?=envio" + envio;
-        }
-    });
-
-    mostrarPestañas(platos);
-}
-
-function mostrarPestañas (platos) {
-    const contenedor = document.createElement('ul');
-    const parametrosBusqueda = new URLSearchParams(window.location.search);
-
-    platos.forEach(plato => {
-        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entrada';
-        if (plato.informacion.categoria.toLowerCase() == categoriaActual) {
-            let platoCreado = plato.crearElemento();
-
-            platoCreado.childNodes.forEach(hijo => {
-                if (hijo.classList == "contenedorCantidad") {
-                    hijo.childNodes.forEach(nieto => {
-                        if (nieto.classList.contains("cantidad") && plato.cantidad > 0) {
-                            nieto.classList.add("cantidadActiva");
-                        } else if (nieto.classList.contains("botonMenos") && plato.cantidad > 0) {
-                            nieto.classList.add("botonMenosActivo");
-                        } else if (nieto.classList.contains("botonMas") && plato.cantidad > 0) {
-                            nieto.classList.add("botonMasActivo");
-                        }
-                    });
-                }
-            });
-
-            if (plato.cantidad > 0) {
-                platoCreado.classList.add("platoActivo");
-            }     
-
-            contenedor.append(platoCreado);
-        }
-    });
-
-    menu.innerHTML = '';
-    menu.append(contenedor);
-
-}
-
-
-
-// obtener platos
-// instanciarlos
-// agregarlos dependiendo de su categoría
-// agregarles el event Listener de sus botones

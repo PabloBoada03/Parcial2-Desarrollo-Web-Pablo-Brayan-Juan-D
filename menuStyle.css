@@ -66,16 +66,14 @@ main{
     border-radius: 1.2rem;
 }
 
-#menu ul {
+#contenedorEntradas{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
     padding: 0;
-
-    
 }
 
-#menu li {
+#contenedorEntradas li {
     list-style: none;
     display: grid;
     grid-template-columns: min-content auto;
