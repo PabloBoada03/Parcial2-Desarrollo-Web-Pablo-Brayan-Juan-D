@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Pedido</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="orderStyle.css">
+    <script src="orderScript.js"></script>
+</head>
+<body>
+    <main>
+        <h1>INFORMACIÓN DEL PEDIDO</h1>
+        <div id="contenedor-pedido">
+            <h3>Pedido</h3>
+            <div id="elementos-pedido"></div>
+        </div>
+
+        <form action="api-url" method="post">
+            <div id="contenedor-cliente">
+                <h3>Información Cliente</h3>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Ingrese su nombre, por favor.">
+        
+                <label for="telefono">Telefono:</label>
+                <input type="tel" name="telefono" id="telefono" required placeholder="Ingrese su telefono, por favor.">
+        
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" id="direccion" required placeholder="Ingrese su direccion, por favor.">
+                
+            </div>
+            <input type="hidden" id="pedido">
+
+            <input type="submit" id="boton-envio">
+        </form>
+
+    </main>
+    
+</body>
+</html>

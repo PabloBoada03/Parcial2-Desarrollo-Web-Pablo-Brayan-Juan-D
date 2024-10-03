@@ -1,121 +1,25 @@
-class Plato {
-    constructor(informacion, carritoCompras) {
-        this.informacion = informacion;
-        this.carritoCompras = carritoCompras;
-        this.id = this.informacion.id;
-        this.cantidad = 0;
-    }
-
-    crearElemento() {
-
-        const botonMas = document.createElement('button');
-        botonMas.textContent = "+";
-        botonMas.classList.add('botonMas');
-        botonMas.addEventListener('click', (event) => this.modificarCantidad(event));
-
-        const botonMenos = document.createElement('button');
-        botonMenos.textContent = "-";
-        botonMenos.classList.add('botonMenos');
-        botonMenos.addEventListener('click', (event) => this.modificarCantidad(event, "menos"));
-
-        const cantidad = document.createElement('span');
-        cantidad.textContent = this.cantidad;
-        cantidad.classList.add('cantidad');
-
-        const contenedorCantidad = document.createElement('div');
-        contenedorCantidad.classList.add('contenedorCantidad');
-        contenedorCantidad.append(botonMenos, cantidad, botonMas);
-
-        const nombre = document.createElement('h3');
-        nombre.textContent = this.informacion.nombre;
-        nombre.classList.add('nombre');
-
-        const descripcion = document.createElement('span');
-        descripcion.textContent = this.informacion.descripcion;
-        descripcion.classList.add('descripcion');
-
-        const precio = document.createElement('span');
-        precio.textContent = this.informacion.precio;
-        precio.classList.add('precio');
-
-        const img = document.createElement('img');
-        img.setAttribute('src', this.informacion.imgUrl);
-
-        const contenedorImg = document.createElement('div');
-        contenedorImg.append(img);
-        contenedorImg.classList.add('contenedorImg');
-
-        const elemento = document.createElement('li');
-        elemento.setAttribute('id', String(this.id));
-        elemento.append(contenedorImg, nombre, descripcion, precio, contenedorCantidad);
-
-        return elemento;
-    }
-
-    modificarCantidad(event, tipo="mas"){
-        let cantidad = this.cantidad;
-        cantidad += (tipo == "mas") ? 1 : -1;
-
-        if (cantidad >= 0) {
-            this.cantidad = cantidad;
-        } else {
-            return;
-        }
-
-        let elementoPadre = event.target.parentElement;
-        
-        this.carritoCompras.agregarPlato(this);
-
-        elementoPadre.childNodes.forEach(hijo => {
-            let claseActiva;
-
-            if (hijo.classList.contains("cantidad")) {
-                hijo.textContent = this.cantidad;
-                claseActiva = "cantidadActiva";
-            } else if (hijo.classList.contains("botonMenos")) {
-                claseActiva = "botonMenosActivo";
-            } else if (hijo.classList.contains("botonMas")) {
-                claseActiva = "botonMasActivo";
-            }
-
-            if (claseActiva) {
-                if (this.cantidad > 0) {
-                    hijo.classList.add(claseActiva);
-                } else {
-                    hijo.classList.remove(claseActiva);
-                }
-            }
-            
-        });
-
-        let elementoAbuelo = elementoPadre.parentElement;
-
-        if (this.cantidad > 0) {
-            elementoAbuelo.classList.add("platoActivo");
-        } else {
-            elementoAbuelo.classList.remove("platoActivo");
-        }
-    }
-}
-
 window.onload = () => {
-
-    const menu = document.getElementById('menu');
+    // Extrae la información de los platos
     let platos = [];
     const carrito = new Carrito();
+    informacionPlatos.forEach(informacion => platos.push(new Plato(informacion, carrito)));
 
-    informacionPlatos.forEach(informacion => {
-        platos.push(new Plato(informacion, carrito));
-    })
+    // Se obtienen los datos almacenados en localStorage
+    carrito.items = obtenerPedidoAlmacenado(carrito);
+    // console.log(carrito.items);
+    carrito.actualizarCarrito();
 
+    // Se actualizan los platos de la base de datos con la información almacenada en localStorage
+    actualizarCantidadPlatos(platos, carrito.items);
+
+    // Chequea que categoría se desea ver
     let parametrosBusqueda = new URLSearchParams(window.location.search);
-
     if (!parametrosBusqueda.get('categoria')) {
         window.history.pushState({ categoria: "entrada" }, '', "?categoria=entrada");
     }
 
+    // Asigna funcionalidad a las pestañas
     const pestañas = document.getElementById('pestañas');
-
     pestañas.children.item(0).childNodes.forEach(pestaña => {
         pestaña.addEventListener('click', (event) => {
             let categoria = event.target.id;
@@ -124,13 +28,13 @@ window.onload = () => {
             let padre = event.target.parentElement;
             padre.childNodes.forEach(hijo => {
                 hijo.classList?.remove("pestañaActiva");
-            })
+            });
 
             event.target.classList.add("pestañaActiva");
 
             window.history.pushState({ categoria }, '', nuevaCategoria);
-            mostrarPestañas(platos);
-        })
+            mostrarPlatos(platos);
+        });
 
         parametrosBusqueda = new URLSearchParams(window.location.search); 
 
@@ -139,21 +43,32 @@ window.onload = () => {
         }
     });
 
-    const enviar = document.getElementById('submit');
-    console.log(enviar);
+    // Muestra la pestaña actual
+    mostrarPlatos(platos);
 
-    enviar.addEventListener('click', () => {
-        let envio = carrito.obtenerEnvio();
-
-        if (envio != "[]") {
-            window.location.href = "index.html?=envio" + envio;
+    // Se verifique que la haya algún elemento en el pedido
+    const botonEnvio = document.getElementById('submit');
+    botonEnvio.addEventListener('click', event => {
+        console.log("Probando probando");
+        let pedido = JSON.parse(localStorage.getItem('pedido')) ?? [];
+        if (pedido.length == 0) {
+            alert('No hay elementos en tu pedido, agrega alguno e intentalo de nuevo, por favor.')
+            return;
         }
-    });
 
-    mostrarPestañas(platos);
+        let destino = String(window.location).split('/');
+        destino[destino.length-1] = 'order.html';
+        destino = destino.join('/');
+
+        window.location.href = destino;
+
+    });
 }
 
-function mostrarPestañas (platos) {
+// Funciones
+
+function mostrarPlatos (platos) {
+    const menu = document.getElementById('menu');
     const contenedor = document.createElement('ul');
     const parametrosBusqueda = new URLSearchParams(window.location.search);
 
@@ -189,9 +104,18 @@ function mostrarPestañas (platos) {
 
 }
 
+function obtenerPedidoAlmacenado(carrito) {
+    let items = JSON.parse(localStorage.getItem('pedido')) ?? [];
+    return items.map(item => new Plato(item.informacion, carrito, item.cantidad));
+}
 
-
-// obtener platos
-// instanciarlos
-// agregarlos dependiendo de su categoría
-// agregarles el event Listener de sus botones
+function actualizarCantidadPlatos(platos, platosActualizados) {
+    for (let i = 0; i < platosActualizados.length; i++) {
+        for (let j = 0; j < platos.length; j++) {
+            if (platos[j].id == platosActualizados[i].id) {
+                platos[j] = platosActualizados[i];
+                break;
+            }
+        }
+    }
+}
