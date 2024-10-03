@@ -66,13 +66,21 @@ main{
     border-radius: 1.2rem;
 }
 
+#menu > div {
+    color: #aaa;
+    font-size: 1.2rem;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #menu ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
     padding: 0;
-
-    
 }
 
 #menu li {
