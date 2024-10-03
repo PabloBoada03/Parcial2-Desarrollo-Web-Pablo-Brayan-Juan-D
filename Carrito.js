@@ -11,15 +11,16 @@ class Carrito {
     agregarPlato(plato) {
         let item = this.items.find(item => item.id == plato.id);
 
-
         if (!item) {
             this.items.push(plato);
         } else if (item.cantidad == 0) {
             this.items = this.items.filter(elemento => elemento != item);
         }
 
-        localStorage.setItem('pedido', this.obtenerEnvio());
         this.actualizarCarrito();
+
+        localStorage.setItem('pedido', this.obtenerEnvio());
+        localStorage.setItem('total', this.subtotal + this.subtotal*this.impuesto);
     }
 
     actualizarCarrito() {
@@ -81,7 +82,7 @@ class Carrito {
             contenedorCantidad.append(botonMenos, cantidad, botonMas);
 
             const nombre = document.createElement('h3');
-            nombre.textContent = item.informacion.nombre;
+            nombre.textContent = `${item.informacion.nombre} (${item.informacion.categoria})`;
             nombre.classList.add('nombre');
 
             const descripcion = document.createElement('span');
@@ -96,20 +97,6 @@ class Carrito {
             elemento.setAttribute('id', String(item.id));
             elemento.append(nombre, descripcion, precio, contenedorCantidad);
 
-
-            // const elementoOrden = document.createElement('div');
-            // elementoOrden.classList.add('ordenItem');
-
-            // const nombre = document.createElement('span');
-            // nombre.textContent = item.informacion.nombre + " x$" + item.cantidad;
-            // nombre.classList.add('nombreOrden');
-
-            // const precio = document.createElement('span');
-            // precio.textContent = "$" + (item.informacion.precio * item.cantidad).toFixed(2);
-            // precio.classList.add('precioOrden');
-
-            // elementoOrden.append(nombre, precio);
-            // this.contenedorOrdenes.appendChild(elementoOrden);
             this.contenedorOrdenes.appendChild(elemento);
         });
     }
@@ -124,15 +111,3 @@ class Carrito {
         return JSON.stringify(envio);
     }
 }
-
-// Instancia global del carrito
-// const carrito = new Carrito();
-
-// Supongamos que cuando el usuario hace clic en un botón "+", se llama esta función:
-// function agregarAlCarrito(plato) {
-//     carrito.agregarPlato(plato);
-// }
-
-// carrito.agregarPlato(platos[1]);
-
-// Asocia la función agregarAlCarrito a los botones "+" de cada plato en tu script principal

@@ -115,3 +115,11 @@ h1 {
     padding: .8rem 0;
     border-radius: 2px;
 }
+
+#total {
+    font-size: 1.5rem;
+}
+
+#total::before {
+    content: '$';
+}

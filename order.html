@@ -16,21 +16,26 @@
             <div id="elementos-pedido"></div>
         </div>
 
-        <form action="api-url" method="post">
+        <div id="contenedor-total">
+            <h3>Total a pagar</h3>
+            <div id="total"></div>
+        </div>
+
+        <form id="formulario">
             <div id="contenedor-cliente">
                 <h3>Información Cliente</h3>
 
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" required placeholder="Ingrese su nombre, por favor.">
+                <input type="text" name="nombreCliente" id="nombre" required placeholder="Ingrese su nombre, por favor.">
         
                 <label for="telefono">Telefono:</label>
-                <input type="tel" name="telefono" id="telefono" required placeholder="Ingrese su telefono, por favor.">
+                <input type="tel" name="telefonoCliente" id="telefono" required placeholder="Ingrese su telefono, por favor.">
         
                 <label for="direccion">Dirección:</label>
-                <input type="text" name="direccion" id="direccion" required placeholder="Ingrese su direccion, por favor.">
+                <input type="text" name="direccionCliente" id="direccion" required placeholder="Ingrese su direccion, por favor.">
                 
             </div>
-            <input type="hidden" id="pedido">
+            <input type="hidden" id="pedido" name="productosPedido">
 
             <input type="submit" id="boton-envio">
         </form>
