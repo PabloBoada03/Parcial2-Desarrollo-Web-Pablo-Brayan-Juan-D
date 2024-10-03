@@ -9,23 +9,23 @@ class Carrito {
     }
 
     agregarPlato(plato) {
-        let item = this.items.find(item => item.id === plato.id);
+        let item = this.items.find(item => item.id == plato.id);
+
 
         if (!item) {
-            this.items.push(plato)
+            this.items.push(plato);
         } else if (item.cantidad == 0) {
             this.items = this.items.filter(elemento => elemento != item);
         }
 
+        localStorage.setItem('pedido', this.obtenerEnvio());
         this.actualizarCarrito();
     }
 
     actualizarCarrito() {
         this.subtotal = 0;
 
-        this.items.forEach(item => {
-            this.subtotal += item.informacion.precio * item.cantidad;
-        });
+        this.items.forEach(item => this.subtotal += item.informacion.precio * item.cantidad);
 
         this.mostrarOrdenes();
 
@@ -118,7 +118,7 @@ class Carrito {
         let envio = [];
 
         this.items.forEach(item => {
-            envio.push({id:item.id, precio:item.informacion.precio, cantidad:item.cantidad});
+            envio.push({"id":item.id, "informacion":item.informacion, "cantidad":item.cantidad});
         });
 
         return JSON.stringify(envio);

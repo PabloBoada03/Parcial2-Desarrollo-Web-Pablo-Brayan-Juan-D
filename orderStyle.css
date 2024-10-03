@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    gap: 1rem;
+    padding: 5vh 0;
+}
+
+main > *:not(form),
+#contenedor-cliente,
+#boton-envio {
+    width: 40%;
+    min-width: 20rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: white;
+
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    column-gap: .5rem;
+    row-gap: 1rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    
+    h3 {
+        grid-column: span 2;
+    }
+
+    input {
+        outline: none;
+        padding: 2px;
+        font-size: .9rem;
+    }
+
+}
+
+#contenedor-pedido div {
+    background-color: #eee;
+    width: 100%;
+    border: none;
+    min-height: 3rem;
+    border-radius: 2px;
+    box-shadow: inset 0 0 10px #3332;
+
+    padding: .5rem;
+    color: #333;
+    font-weight: bold;
+
+    li {
+        font-family: 'Courier New', Courier, monospace;
+        display: inline;
+    }
+
+    li:nth-child(1)::after {
+        content: ' ';
+    }
+    
+    li:nth-child(3)::before {
+        content: ' por $';
+    }
+    
+    li:nth-child(3)::after {
+        content: ' la unidad.';
+    }
+}
+
+h3 {
+    font-weight: 100;
+    font-size: 1.5rem;
+    margin-bottom: .7rem;
+
+}
+
+
+h1 {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#contenedor-pedido,
+h1 {
+    min-height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#boton-envio {
+    font-size: 1rem;
+    background-color: var(--color-logo);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: .8rem 0;
+    border-radius: 2px;
+}
