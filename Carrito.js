@@ -81,7 +81,7 @@ class Carrito {
             contenedorCantidad.append(botonMenos, cantidad, botonMas);
 
             const nombre = document.createElement('h3');
-            nombre.textContent = item.informacion.nombre;
+            nombre.textContent = `${item.informacion.nombre} (${item.informacion.categoria})`;
             nombre.classList.add('nombre');
 
             const descripcion = document.createElement('span');
