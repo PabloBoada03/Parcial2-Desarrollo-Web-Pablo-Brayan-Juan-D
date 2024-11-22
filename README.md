@@ -1,6 +1,6 @@
-# Parcial1-Desarrollo-Web-Pablo-Brayan-Juan-D
+# Proyecto-Desarrollo-Web-Pablo-Brayan-Juan-D
 
-# Parcial 1 Desarrollo Web 2024-2
+# Proyecto Desarrollo Web 2024-2
 
 ### Programado por:
 - **Brayan Presiga: 301424**
