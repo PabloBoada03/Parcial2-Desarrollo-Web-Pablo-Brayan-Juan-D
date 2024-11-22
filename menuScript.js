@@ -67,21 +67,20 @@ window.onload = async () => {
 
 // Funciones
 
-const apiDatos = 'https://script.google.com/macros/s/AKfycbzbRgQm2M03Jh_JQ1xTdWjm8H6xl0dkSQXuo1o5oHCflh-pnmaENpyEV5sjsQE6TE2-Ow/exec'; // Enlace de la API donde estamos solicitando información de los platos
+const apiDatos = 'http://127.0.0.1:8000/api/dishes'; // Enlace de la API donde estamos solicitando información de los platos
 
 async function obtenerPlatosAPI() {
-    const respuesta = await fetch(apiDatos)
+    respuesta = await fetch(apiDatos)
         .then(response => response.json())
-        .then(response => response.data.map(plato => ({
-        id: plato.ID,
-        categoria: plato.CATEGORIA,
-        nombre: plato.NOMBRE,
-        descripcion: plato.DESCRIPCION,
-        precio: plato.PRECIO,
-        imgUrl: plato.IMGURL
+        .then(response => response.map(plato => ({
+            id: plato.id,
+            categoria: plato.category,
+            nombre: plato.name,
+            descripcion: plato.description,
+            precio: plato.price,
+            imgUrl: plato.image_url
         })))
         .catch(error => console.log(error));
-
     return respuesta;
   }
 
