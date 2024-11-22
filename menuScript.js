@@ -2,7 +2,7 @@ window.onload = async () => {
     // Extrae la información de los platos
     const carrito = new Carrito();
     let platos = [];
-    let informacionPlatos = await obtenerPlatosAPI();
+    informacionPlatos = await obtenerPlatosAPI();
     informacionPlatos.forEach(informacion => platos.push(new Plato(informacion, carrito)));
 
     // Se obtienen los datos almacenados en localStorage
@@ -14,8 +14,8 @@ window.onload = async () => {
 
     // Chequea que categoría se desea ver
     let parametrosBusqueda = new URLSearchParams(window.location.search);
-    if (!parametrosBusqueda.get('category')) {
-        window.history.pushState({ categoria: "Appetizers" }, '', "?categoria=Appetizers");
+    if (!parametrosBusqueda.get('categoria')) {
+        window.history.pushState({ categoria: "entradas" }, '', "?categoria=entradas");
     }
 
     // Asigna funcionalidad a las pestañas
@@ -23,7 +23,7 @@ window.onload = async () => {
     pestañas.children.item(0).childNodes.forEach(pestaña => {
         pestaña.addEventListener('click', (event) => {
             let categoria = event.target.id;
-            let nuevaCategoria = "?category=" + categoria;
+            let nuevaCategoria = "?categoria=" + categoria;
 
             let padre = event.target.parentElement;
             padre.childNodes.forEach(hijo => {
@@ -38,7 +38,7 @@ window.onload = async () => {
 
         parametrosBusqueda = new URLSearchParams(window.location.search); 
 
-        if (pestaña.id == parametrosBusqueda.get('category')) {
+        if (pestaña.id == parametrosBusqueda.get('categoria')) {
             pestaña.click();
         }
     });
@@ -67,51 +67,33 @@ window.onload = async () => {
 
 // Funciones
 
-const apiDatos = 'http://127.0.0.1:8000/dishes'; // Enlace de la API donde estamos solicitando información de los platos
+const apiDatos = 'https://script.google.com/macros/s/AKfycbzbRgQm2M03Jh_JQ1xTdWjm8H6xl0dkSQXuo1o5oHCflh-pnmaENpyEV5sjsQE6TE2-Ow/exec'; // Enlace de la API donde estamos solicitando información de los platos
 
-function obtenerPlatosAPI() {
-    const apiDatos = 'http://127.0.0.1:8000/api/dishes';
+async function obtenerPlatosAPI() {
+    const respuesta = await fetch(apiDatos)
+        .then(response => response.json())
+        .then(response => response.data.map(plato => ({
+        id: plato.ID,
+        categoria: plato.CATEGORIA,
+        nombre: plato.NOMBRE,
+        descripcion: plato.DESCRIPCION,
+        precio: plato.PRECIO,
+        imgUrl: plato.IMGURL
+        })))
+        .catch(error => console.log(error));
 
-    fetch(apiDatos)
-        .then(response => {
-            if (!response.ok) {
-                console.error(`Error HTTP: ${response.status}`);
-                throw new Error('Error en la respuesta de la API');
-            }
-            return response.json();  // Parseamos la respuesta a JSON
-        })
-        .then(data => {
-            // Usamos .map para transformar los objetos recibidos
-            const platosTransformados = data.map(plato => ({
-                id: plato.id, // Asegúrate de que estos nombres coincidan con los datos reales
-                categoria: plato.category,
-                nombre: plato.name,
-                descripcion: plato.description,
-                precio: plato.price,
-                imgUrl: plato.img_url
-            }));
-        
-            console.log('Platos transformados:', platosTransformados); // Verifica que los datos están correctamente transformados
-            mostrarPlatos(platosTransformados); // Pasa los datos transformados a la función para mostrarlos
-        })
-} 
+    return respuesta;
+  }
 
-function mostrarPlatos (plato) {
+function mostrarPlatos (platos) {
     const menu = document.getElementById('menu');
     const contenedor = document.createElement('ul');
     const parametrosBusqueda = new URLSearchParams(window.location.search);
 
-    plato.forEach(data => {
-        console.log(data);  // Verifica que el objeto 'plato' tiene las propiedades correctas
-    
-        let categoriaActual = parametrosBusqueda.get('category') ?? 'Appetizers';
-        console.log('Categoria actual:', categoriaActual);
-    
-        if (data.category) {
-            console.log('Categoria del plato:', data.category);
-            if (plato.category.toLowerCase() == categoriaActual) {
-                console.log(data);
-                let platoCreado = plato.crearElemento();
+    platos.forEach(plato => {
+        let categoriaActual = parametrosBusqueda.get('categoria') ?? 'entradas';
+        if (plato.informacion.categoria.toLowerCase() == categoriaActual) {
+            let platoCreado = plato.crearElemento();
 
             platoCreado.childNodes.forEach(hijo => {
                 if (hijo.classList == "contenedorCantidad") {
@@ -132,9 +114,6 @@ function mostrarPlatos (plato) {
             }     
 
             contenedor.append(platoCreado);
-            }
-        } else {
-            console.log('Este plato no tiene categoría definida:', data);
         }
     });
 
