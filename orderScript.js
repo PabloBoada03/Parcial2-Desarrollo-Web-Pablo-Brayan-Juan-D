@@ -1,6 +1,9 @@
 window.onload = () => {
+    if (!sessionStorage.getItem('token')) {
+        window.location.href = 'login.html';
+    }
     // Se comprueba que haya pedidos para realizar la compra
-    const pedido = JSON.parse(localStorage.getItem('pedido')) ?? []; 
+    const pedido = JSON.parse(sessionStorage.getItem('pedido')) ?? []; 
     if (pedido.length == 0) {
         alert("El pedido no se puede completar debido a que no hay ningun producto por comprar. Sera devuelto al menú para que pueda hacer su compra.");
 
@@ -16,25 +19,29 @@ window.onload = () => {
     }
 
     // Se guarda la información del pedido en un input oculto para enviarlo posteriormente a la API
-    document.getElementById('pedido').setAttribute('value', localStorage.getItem('pedido'));
+    document.getElementById('pedido').setAttribute('value', sessionStorage.getItem('pedido'));
 
     // Se establecen los eventos que guardan los datos del usuario
     const nombreCliente = document.getElementById('nombre');
     const telefonoCliente = document.getElementById('telefono');
     const direccionCliente = document.getElementById('direccion');
 
-    nombreCliente.addEventListener('input', event => localStorage.setItem('nombreCliente', event.target.value));
-    telefonoCliente.addEventListener('input', event => localStorage.setItem('telefonoCliente', event.target.value));
-    direccionCliente.addEventListener('input', event => localStorage.setItem('direccionCliente', event.target.value));
+    nombreCliente.addEventListener('input', event => sessionStorage.setItem('nombreCliente', event.target.value));
+    telefonoCliente.addEventListener('input', event => sessionStorage.setItem('telefonoCliente', event.target.value));
+    direccionCliente.addEventListener('input', event => sessionStorage.setItem('direccionCliente', event.target.value));
 
     // Se muestra el pedido, el total y la información guardada del usuario
     agregarElementosPedido();
 
-    document.getElementById('total').innerHTML = (Number(localStorage.getItem('total') ?? 0)).toFixed(3);
+    document.getElementById('total').innerHTML = (Number(sessionStorage.getItem('total') ?? 0)).toFixed(3);
 
-    nombreCliente.setAttribute('value', localStorage.getItem('nombreCliente') ?? '');
-    telefonoCliente.setAttribute('value', localStorage.getItem('telefonoCliente') ?? '');
-    direccionCliente.setAttribute('value', localStorage.getItem('direccionCliente') ?? '');
+    let user = JSON.parse(sessionStorage.getItem('user'));
+
+    if (user) {
+        nombreCliente.setAttribute('value', user.name);
+        telefonoCliente.setAttribute('value', user.phone_number);
+        direccionCliente.setAttribute('value', user.email);
+    }
 
     // Enviar información del pedido al servidor
     const formulario = document.getElementById('formulario');
@@ -42,7 +49,7 @@ window.onload = () => {
 }
 
 function agregarElementosPedido () {
-    let informacionPedido = JSON.parse(localStorage.getItem('pedido')) ?? [];
+    let informacionPedido = JSON.parse(sessionStorage.getItem('pedido')) ?? [];
     const elementosPedido = document.getElementById('elementos-pedido');
 
     let temp = document.createDocumentFragment();
@@ -71,32 +78,36 @@ function agregarElementosPedido () {
     elementosPedido.appendChild(temp);
 }
 
-const apiPedidos = "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxIsFO3fw-FxkuLx3yOK8OeYiAXWbK4wSQr3LCWdP1BHt8--ptzlvPX0JIV_fS5KI6Zgw/exec"; // Enlace de la API donde estamos solicitando información de los platos 
+// const apiPedidos = "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxIsFO3fw-FxkuLx3yOK8OeYiAXWbK4wSQr3LCWdP1BHt8--ptzlvPX0JIV_fS5KI6Zgw/exec"; // Enlace de la API donde estamos solicitando información de los platos 
+const guardarPedidoEndPoint = "https://triogourmet-bps-pnt20242-unisabana.onrender.com/api/orders";
 
 async function enviarPedidoServidor (event) {
     event.preventDefault();
 
-    const datosPedido = new FormData(formulario);
-    const datosPedidoJSON = {};
-    datosPedido.forEach((valor, clave) => {
-        datosPedidoJSON[clave] = valor;
-    })
+    const client_id = parseInt(sessionStorage.getItem('id'));
+    console.log(client_id)
+    const datosForm = new FormData(formulario);
+    console.log(datosForm.get('productosPedido'))
 
-    const datosRelevantesProductos = JSON.parse(datosPedidoJSON.productosPedido).map(elemento => (
-        {
+    const datosPedidoJSON = {
+        status: "PENDING",
+        dishes: JSON.parse(datosForm.get("productosPedido")).map(elemento => ({
             id: elemento.id,
-            precio: elemento.informacion.precio,
-            cantidad: elemento.cantidad
-        }
-    ));
+            quantity: elemento.cantidad
+        })),
+        client_id: client_id
+    };
 
-    datosPedidoJSON.productosPedido = datosRelevantesProductos;
-    datosPedidoJSON['valorTotal'] = localStorage.getItem('total');
+    const token = sessionStorage.getItem('token');
+    console.log(JSON.stringify(datosPedidoJSON))
+    console.log(token)
 
-    await fetch(apiPedidos, {
+    await fetch(guardarPedidoEndPoint, {
         method: 'POST', 
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(datosPedidoJSON)
     })
@@ -104,8 +115,8 @@ async function enviarPedidoServidor (event) {
             console.log("Solicitud realizada con exito!");
             console.log(response);
 
-            localStorage.setItem('pedido', null);
-            localStorage.setItem('total', null);
+            sessionStorage.setItem('pedido', null);
+            sessionStorage.setItem('total', null);
 
             alert("Compra exitosa! Será redirigido a la página principal. Muchas gracias por utilizar nuestros servicios.");
 

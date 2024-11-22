@@ -1,0 +1,55 @@
+body {
+    background-image: url(fotoFondo.png);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin-top: 7%;
+}
+main h1 {
+    display: flex;
+    align-items:center;
+    justify-content: top;
+    margin: auto;
+    margin: 2%;
+}
+
+main div {
+    padding: 3%;
+    background-color: rgb(225, 226, 215);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 340px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+input, button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+}
+
+button {
+    background-color: rgb(192, 174, 88);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(87, 76, 24);
+}
+
+#label_message {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}

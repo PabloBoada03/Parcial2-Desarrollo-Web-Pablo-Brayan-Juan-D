@@ -19,8 +19,8 @@ class Carrito {
 
         this.actualizarCarrito();
 
-        localStorage.setItem('pedido', this.obtenerEnvio());
-        localStorage.setItem('total', this.subtotal + this.subtotal*this.impuesto);
+        sessionStorage.setItem('pedido', this.obtenerEnvio());
+        sessionStorage.setItem('total', this.subtotal + this.subtotal*this.impuesto);
     }
 
     actualizarCarrito() {

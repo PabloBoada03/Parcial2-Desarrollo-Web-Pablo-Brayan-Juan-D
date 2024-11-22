@@ -5,11 +5,11 @@ window.onload = async () => {
     informacionPlatos = await obtenerPlatosAPI();
     informacionPlatos.forEach(informacion => platos.push(new Plato(informacion, carrito)));
 
-    // Se obtienen los datos almacenados en localStorage
+    // Se obtienen los datos almacenados en sessionStorage
     carrito.items = obtenerPedidoAlmacenado(carrito);
     carrito.actualizarCarrito();
 
-    // Se actualizan los platos de la base de datos con la información almacenada en localStorage   
+    // Se actualizan los platos de la base de datos con la información almacenada en sessionStorage   
     actualizarCantidadPlatos(platos, carrito.items);
 
     // Chequea que categoría se desea ver
@@ -50,14 +50,18 @@ window.onload = async () => {
     const botonEnvio = document.getElementById('submit');
     botonEnvio.addEventListener('click', event => {
         console.log("Probando probando");
-        let pedido = JSON.parse(localStorage.getItem('pedido')) ?? [];
+        let pedido = JSON.parse(sessionStorage.getItem('pedido')) ?? [];
         if (pedido.length == 0) {
             alert('No hay elementos en tu pedido, agrega alguno e intentalo de nuevo, por favor.')
             return;
         }
 
         let destino = String(window.location).split('/');
-        destino[destino.length-1] = 'order.html';
+        if (sessionStorage.getItem('token')) {
+            destino[destino.length-1] = 'order.html';
+        } else {
+            destino[destino.length-1] = 'loginCliente.html';
+        }
         destino = destino.join('/');
 
         window.location.href = destino;
@@ -67,7 +71,7 @@ window.onload = async () => {
 
 // Funciones
 
-const apiDatos = 'http://127.0.0.1:8000/api/dishes'; // Enlace de la API donde estamos solicitando información de los platos
+const apiDatos = 'https://triogourmet-bps-pnt20242-unisabana.onrender.com/api/dishes'; // Enlace de la API donde estamos solicitando información de los platos
 
 async function obtenerPlatosAPI() {
     respuesta = await fetch(apiDatos)
@@ -122,7 +126,7 @@ function mostrarPlatos (platos) {
 }
 
 function obtenerPedidoAlmacenado(carrito) {
-    let items = JSON.parse(localStorage.getItem('pedido')) ?? [];
+    let items = JSON.parse(sessionStorage.getItem('pedido')) ?? [];
     return items.map(item => new Plato(item.informacion, carrito, item.cantidad));
 }
 
