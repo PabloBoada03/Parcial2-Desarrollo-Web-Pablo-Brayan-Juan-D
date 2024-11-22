@@ -64,6 +64,7 @@ body {
 }
 
 #button-logout {
+    display: none;
     background-color: #1d5efa;
     color: white;
     padding: 10px;
