@@ -2,6 +2,7 @@ window.onload = () => {
     if (!sessionStorage.getItem('token')) {
         alert('En estos momentos no se encuentra en una sesión activa. Inicie sesión antes de continuar, por favor.')
         window.location.href = 'loginCliente.html?redirect=order.html';
+        return;
     }
     // Se comprueba que haya pedidos para realizar la compra
     const pedido = JSON.parse(sessionStorage.getItem('pedido')) ?? []; 

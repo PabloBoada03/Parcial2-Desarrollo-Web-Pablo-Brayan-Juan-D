@@ -2,6 +2,7 @@ window.onload = async () => {
     if (!sessionStorage.getItem('token')) {
         alert('En estos momentos no se encuentra en una sesión activa. Inicie sesión antes de continuar, por favor.')
         window.location.href = 'loginCliente.html?redirect=history.html';
+        return;
     }
 
     const client = await getClient();
