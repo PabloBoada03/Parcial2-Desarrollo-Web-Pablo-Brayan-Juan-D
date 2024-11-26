@@ -1,6 +1,7 @@
 window.onload = () => {
     if (!sessionStorage.getItem('token')) {
-        window.location.href = 'login.html';
+        alert('En estos momentos no se encuentra en una sesión activa. Inicie sesión antes de continuar, por favor.')
+        window.location.href = 'loginCliente.html?redirect=order.html';
     }
     // Se comprueba que haya pedidos para realizar la compra
     const pedido = JSON.parse(sessionStorage.getItem('pedido')) ?? []; 
@@ -111,22 +112,33 @@ async function enviarPedidoServidor (event) {
         },
         body: JSON.stringify(datosPedidoJSON)
     })
-        .then(response => {
-            console.log("Solicitud realizada con exito!");
-            console.log(response);
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Error al realizar la solicitud: " + response.status);
+        }
+    })
+    .then(response => {
+        console.log("Solicitud realizada con exito!");
+        console.log(response);
 
-            sessionStorage.setItem('pedido', null);
-            sessionStorage.setItem('total', null);
+        sessionStorage.setItem('pedido', null);
+        sessionStorage.setItem('total', null);
 
-            alert("Compra exitosa! Será redirigido a la página principal. Muchas gracias por utilizar nuestros servicios.");
+        alert("Compra exitosa! Será redirigido a la página principal. Muchas gracias por utilizar nuestros servicios.");
 
-            let destino = String(window.location);
-            destino = destino.split("/");
-            destino[destino.length-1] = "index.html";
-            destino = destino.join("/");
+        let destino = String(window.location);
+        destino = destino.split("/");
+        destino[destino.length-1] = "index.html";
+        destino = destino.join("/");
 
-            window.location.href = destino;
-            return;
-        })
-        .catch(error => console.log(error))
+        window.location.href = destino;
+        return;
+    })
+    .catch(error => {
+        console.log(error);
+        alert('En estos momentos no se encuentra en una sesión activa. Inicie sesión antes de continuar, por favor.');
+        window.location.href = 'loginCliente.html?redirect=history.html';
+    });
 }

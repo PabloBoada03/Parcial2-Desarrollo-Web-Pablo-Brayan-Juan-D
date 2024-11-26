@@ -19,11 +19,16 @@ window.onload = () => {
         input_password.innerHTML = '';
         
         const token = sessionStorage.getItem('token');
+        let loged = true;
 
         if (!token || token == "undefined") {
-            await login(email, password);
-        } else {
-            window.location.href = 'order.html';
+            loged = await login(email, password);
+        }
+
+        if (loged) {
+            alert('Se ha iniciado sesión exitosamente.')
+            const params = new URLSearchParams(window.location.search);
+            window.location.href = params.get('redirect') ?? 'index.html';
         }
     });
 }
@@ -41,19 +46,20 @@ async function login(email, password) {
     })
     .then(response => {
         if (response.ok) {
-            return response.json().then(datos =>{
-                sessionStorage.setItem('token', datos.access_token);
-                sessionStorage.setItem('id', datos.user.id);
-                sessionStorage.setItem('user', JSON.stringify(datos.user))
-                window.location.href = 'order.html';
-            });
+            return response.json()
         } else {
             label_message.textContent = 'Nombre o contraseña incorrectos';
             throw new Error("Error de autenticación: " + response.status);
         }
     })
+    .then(datos =>{
+        sessionStorage.setItem('token', datos.access_token);
+        sessionStorage.setItem('id', datos.user.id);
+        sessionStorage.setItem('user', JSON.stringify(datos.user))
+        return true;
+    })
     .catch(error => {
         console.error("Error: " + error);
-        return error.message
+        return false;
     });
 }

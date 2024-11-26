@@ -95,15 +95,7 @@ window.onload = async () => {
             return;
         }
 
-        let destino = String(window.location).split('/');
-        if (sessionStorage.getItem('token')) {
-            destino[destino.length-1] = 'order.html';
-        } else {
-            destino[destino.length-1] = 'loginCliente.html';
-        }
-        destino = destino.join('/');
-
-        window.location.href = destino;
+        window.location.href = 'order.html';
 
     });
 }
