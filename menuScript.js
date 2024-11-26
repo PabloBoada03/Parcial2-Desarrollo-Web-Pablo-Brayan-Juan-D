@@ -1,6 +1,6 @@
 window.onload = async () => {
     const token = sessionStorage.getItem('token');
-    console.log(token)
+    // console.log(token)
     if (!sessionStorage.getItem('token')) {
         document.getElementById('button-logout').style.display = 'none';
     } else {
@@ -22,7 +22,7 @@ window.onload = async () => {
                 }
             })
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 if (!response.ok) {
                     console.log("Error en la respuesta");
                     return;
@@ -30,7 +30,7 @@ window.onload = async () => {
                 response.json();
             })
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 sessionStorage.clear();
                 window.location.href = "index.html";
             })
@@ -88,7 +88,7 @@ window.onload = async () => {
     // Se verifique que la haya algún elemento en el pedido
     const botonEnvio = document.getElementById('submit');
     botonEnvio.addEventListener('click', event => {
-        console.log("Probando probando");
+        // console.log("Probando probando");
         let pedido = JSON.parse(sessionStorage.getItem('pedido')) ?? [];
         if (pedido.length == 0) {
             alert('No hay elementos en tu pedido, agrega alguno e intentalo de nuevo, por favor.')

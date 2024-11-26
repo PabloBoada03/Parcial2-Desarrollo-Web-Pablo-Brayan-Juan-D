@@ -13,7 +13,7 @@ window.onload = () => {
         destino[destino.length-1] = "menu.html";
         destino = destino.join("/");
 
-        console.log(destino)
+        // console.log(destino)
 
         window.location.href = destino;
         return;
@@ -86,9 +86,9 @@ async function enviarPedidoServidor (event) {
     event.preventDefault();
 
     const client_id = parseInt(sessionStorage.getItem('id'));
-    console.log(client_id)
+    // console.log(client_id)
     const datosForm = new FormData(formulario);
-    console.log(datosForm.get('productosPedido'))
+    // console.log(datosForm.get('productosPedido'))
 
     const datosPedidoJSON = {
         status: "PENDING",
@@ -100,8 +100,8 @@ async function enviarPedidoServidor (event) {
     };
 
     const token = sessionStorage.getItem('token');
-    console.log(JSON.stringify(datosPedidoJSON))
-    console.log(token)
+    // console.log(JSON.stringify(datosPedidoJSON))
+    // console.log(token)
 
     await fetch(guardarPedidoEndPoint, {
         method: 'POST', 
@@ -121,7 +121,7 @@ async function enviarPedidoServidor (event) {
     })
     .then(response => {
         console.log("Solicitud realizada con exito!");
-        console.log(response);
+        // console.log(response);
 
         sessionStorage.setItem('pedido', null);
         sessionStorage.setItem('total', null);

@@ -22,7 +22,7 @@ window.onload = async () => {
                 }
             })
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 if (!response.ok) {
                     console.log("Error en la respuesta");
                     return;
@@ -30,7 +30,6 @@ window.onload = async () => {
                 response.json();
             })
             .then(response => {
-                console.log(response);
                 sessionStorage.clear();
                 window.location.href = 'index.html'
             })
@@ -47,7 +46,7 @@ async function getClient() {
     const API_URL = 'https://triogourmet-bps-pnt20242-unisabana.onrender.com';
     const client_id = sessionStorage.getItem('id');
     const token = sessionStorage.getItem('token');
-    console.log(token);
+    // console.log(token);
     return await fetch (`${API_URL}/api/clients/${client_id}`, {
         method: 'GET',
         headers: {
@@ -72,19 +71,17 @@ async function getClient() {
 function showOrders(orders) {
     const ordersFields = document.getElementById('ordersFields');
     ordersFields.innerHTML = ''; 
-    console.log(orders.length);
+    // console.log(orders.length);
 
     if (orders.length === 0) {
         ordersFields.innerHTML = '<tr><td colspan="4">No se encontraron pedidos.</td></tr>';
         return;
     }
-    console.log(orders);
+    // console.log(orders);
     orders.forEach((order) => {
         console.log('Procesando pedido:', order); 
 
         const row = document.createElement('tr');
-
-        
 
         row.innerHTML = `
             <td>${order.id}</td>
